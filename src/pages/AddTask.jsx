@@ -17,7 +17,7 @@ const AddTask = () => {
                 <div className='flex flex-col gap-2'>
                     <label for='category'>Category</label>
                     <select id='category' name='category' placeholder='Select Category'>
-                        <option value="-- select Category --">-- select Category --</option>
+                        <option disabled selected value="">Choose Category</option>
                         <option value="Web Development">Web Development</option>
                         <option value="Graphics Design">Graphics Design</option>
                         <option value="Content Writing">Content Writing</option>
