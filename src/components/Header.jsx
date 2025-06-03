@@ -2,6 +2,20 @@ import React from "react";
 import { Link } from "react-router";
 
 const Header = () => {
+    const links = <>
+        <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/add-task'>Add Task</Link>
+          </li>
+          <li>
+            <Link to='/all-task'>Browse Task</Link>
+          </li>
+          <li>
+            <Link to='/my-task'>My Task</Link>
+          </li>
+    </>
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -27,15 +41,7 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links}
           </ul>
         </div>
         <a className="text-xl font-bold">
@@ -44,23 +50,11 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/add-task'>Add Task</Link>
-          </li>
-          <li>
-            <Link to='/all-task'>Browse Task</Link>
-          </li>
-          <li>
-            <Link to='/my-task'>My Task</Link>
-          </li>
-          
+            {links}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Login</a>
+        <a className='px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg'>Login</a>
       </div>
     </div>
   );
