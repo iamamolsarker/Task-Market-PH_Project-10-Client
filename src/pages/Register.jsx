@@ -1,10 +1,12 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, user } = use(AuthContext);
+
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(user);
@@ -18,10 +20,41 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        const userData = {
+          email,
+          ...restData,
+          creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
 
+        //fetch user post
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              Swal.fire({
+                title: "User Registered Successfully!",
+                icon: "success",
+                timer: 2000,
+              });
+              setTimeout(() => navigate('/login'), 2200);
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
       });
   };
   return (
