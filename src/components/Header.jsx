@@ -1,21 +1,43 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
+import Swal from "sweetalert2";
 
 const Header = () => {
-    const links = <>
-        <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/add-task'>Add Task</Link>
-          </li>
-          <li>
-            <Link to='/all-task'>Browse Task</Link>
-          </li>
-          <li>
-            <Link to='/my-task'>My Task</Link>
-          </li>
+  const { user, logOut } = use(AuthContext);
+
+  const handleLogOut = () => {
+    console.log("log out initialized");
+    logOut()
+    .then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Log out successful!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    })
+    .catch(error =>{
+      console.log(error.message);
+    })
+  };
+  const links = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/add-task">Add Task</Link>
+      </li>
+      <li>
+        <Link to="/all-task">Browse Task</Link>
+      </li>
+      <li>
+        <Link to="/my-task">My Task</Link>
+      </li>
     </>
+  );
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -45,16 +67,28 @@ const Header = () => {
           </ul>
         </div>
         <a className="text-xl font-bold">
-            <h2>Task Market</h2>
+          <h2>Task Market</h2>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-            {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className='px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg'>Login</a>
+        {user ? (
+          <Link
+            onClick={handleLogOut}
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"
+          >
+            Log out
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

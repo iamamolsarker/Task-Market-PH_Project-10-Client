@@ -22,9 +22,7 @@ const Register = () => {
         console.log(result.user);
         const userData = {
           email,
-          ...restData,
-          creationTime: result.user?.metadata?.creationTime,
-          lastSignInTime: result.user?.metadata?.lastSignInTime,
+          ...restData
         };
 
         //fetch user post
@@ -61,7 +59,7 @@ const Register = () => {
     <div className="max-w-sm mx-auto min-h-screen items-center justify-center pt-24">
       <div>
         <h2 className="text-3xl font-semibold mb-5 text-center">
-          Register you account
+          Register your account
         </h2>
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
