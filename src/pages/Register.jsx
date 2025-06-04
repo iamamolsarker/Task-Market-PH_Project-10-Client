@@ -1,12 +1,36 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser, user } = use(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(user);
+    const form = e.target;
+    // const email = form.email.value;
+    // const password = form.password.value;
+    const { email, password, ...restData } = Object.fromEntries(
+      new FormData(form)
+    );
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="max-w-sm mx-auto min-h-screen items-center justify-center pt-24">
       <div>
-        <h2 className="text-3xl font-semibold mb-5 text-center">Register you account</h2>
-        <form className="space-y-4">
+        <h2 className="text-3xl font-semibold mb-5 text-center">
+          Register you account
+        </h2>
+        <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <label className="input w-full">
               <svg
@@ -25,7 +49,7 @@ const Register = () => {
                   <circle cx="12" cy="7" r="4"></circle>
                 </g>
               </svg>
-              <input type="text" placeholder="Your name" required />
+              <input type="text" name="name" placeholder="Your name" required />
             </label>
           </div>
           <div>
@@ -46,7 +70,12 @@ const Register = () => {
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </g>
               </svg>
-              <input type="email" placeholder="mail@site.com" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="mail@site.com"
+                required
+              />
             </label>
             <div className="validator-hint hidden">
               Enter valid email address
@@ -72,7 +101,7 @@ const Register = () => {
                   <path d="M13 12l4 4"></path>
                 </g>
               </svg>
-              <input type="text" placeholder="Photo URL" />
+              <input type="text" name="photo" placeholder="Photo URL" />
             </label>
           </div>
           <div>
@@ -100,6 +129,7 @@ const Register = () => {
               </svg>
               <input
                 type="password"
+                name="password"
                 required
                 placeholder="Password"
                 minlength="6"
