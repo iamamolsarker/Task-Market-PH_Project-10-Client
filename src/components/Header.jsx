@@ -67,9 +67,9 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="text-xl font-bold">
+        <Link to='/' className="text-xl font-bold">
           <h2>Task Market</h2>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
