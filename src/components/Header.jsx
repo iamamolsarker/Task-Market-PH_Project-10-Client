@@ -9,18 +9,18 @@ const Header = () => {
   const handleLogOut = () => {
     console.log("log out initialized");
     logOut()
-    .then(() => {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Log out successful!",
-        showConfirmButton: false,
-        timer: 1500,
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Log out successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
-    })
-    .catch(error =>{
-      console.log(error.message);
-    })
   };
   const links = (
     <>
@@ -38,6 +38,7 @@ const Header = () => {
       </li>
     </>
   );
+  console.log(user);
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -75,12 +76,16 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user ? (
+          <div className="flex gap-2 items-center justify-center">
+          <img title={user.displayName} src={user.photoURL} alt="" className="w-[48px] h-[48px] border border-gray-400 rounded-full object-contain"/>
           <Link
             onClick={handleLogOut}
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"
           >
             Log out
           </Link>
+          </div>
+          
         ) : (
           <Link
             to="/login"

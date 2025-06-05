@@ -4,25 +4,23 @@ import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, user } = use(AuthContext);
+  const { createUser, user, updateUser } = use(AuthContext);
 
   const navigate = useNavigate();
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     console.log(user);
     const form = e.target;
-    // const email = form.email.value;
-    // const password = form.password.value;
-    const { email, password, ...restData } = Object.fromEntries(
+    const { email, password, name, photo } = Object.fromEntries(
       new FormData(form)
     );
-
-    createUser(email, password)
+    await createUser(email, password)
       .then((result) => {
         console.log(result.user);
         const userData = {
           email,
-          ...restData
+          name,
+          photo,
         };
 
         //fetch user post
@@ -42,7 +40,7 @@ const Register = () => {
                 icon: "success",
                 timer: 2000,
               });
-              setTimeout(() => navigate('/login'), 2200);
+              setTimeout(() => navigate("/my-task"), 2200);
             }
           });
       })
@@ -53,6 +51,14 @@ const Register = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
+      });
+
+    await updateUser(name, photo)
+      .then(() => {
+        //updated!
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (
