@@ -26,7 +26,8 @@ const router = createBrowserRouter([
         },
         {
             path: 'all-task',
-            element:<AllTask></AllTask>
+            element:<AllTask></AllTask>,
+            loader: ()=> fetch('http://localhost:5000/all-task/')
         },
         {
             path: 'my-task',

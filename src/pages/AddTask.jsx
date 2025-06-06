@@ -131,7 +131,7 @@ const AddTask = () => {
         </div>
         {/* Active / Inactive Status hidden Data */}
         <div>
-          <input type="checkbox" className="toggle toggle-info" name="status" />
+          <input type="checkbox" className="toggle toggle-info hidden" defaultChecked name="status" />
         </div>
         <div>
           <input

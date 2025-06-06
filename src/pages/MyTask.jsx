@@ -1,9 +1,8 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthContext';
-import MyTaskCard from '../components/MyTaskRow';
 import { CiCircleRemove, CiEdit } from 'react-icons/ci';
-import { VscEye } from 'react-icons/vsc';
 import Swal from 'sweetalert2';
+import { ImMagicWand } from 'react-icons/im';
 
 const MyTask = () => {
 
@@ -51,6 +50,9 @@ const MyTask = () => {
     
     return (
         <div className='max-w-8/12 mx-auto my-12 overflow-x-auto'>
+            
+            {
+                myTask.length ?
             <table className="table table-zebra w-full">
                 {/* head */}
                 <thead>
@@ -73,7 +75,7 @@ const MyTask = () => {
                         <th>{task.budget}</th>
                         <th>{task.deadline}</th>
                         <th className='flex gap-2 items-center'>
-                            <button title ="View Details" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><VscEye size={20}/></button>
+                            <button title ="Bids" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><ImMagicWand size={20}/></button>
                             <button title="Edit" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><CiEdit size={20}/></button>
                             <button onClick={ ()=> handleDelete(task._id)} title="Delete" className='border border-[#ff00001a] p-2 rounded-lg cursor-pointer bg-[#ff00001a]'><CiCircleRemove size={20} color='#ef4444'/></button>
                         </th>
@@ -82,9 +84,9 @@ const MyTask = () => {
                     }
                 </tbody>
             </table>
-            {/* {
-                myTask.map(task => <MyTaskCard key={task._id} task={task}></MyTaskCard>)
-            } */}
+            :
+            <div>no data found</div>
+            }
         </div>
     );
 };
