@@ -9,6 +9,7 @@ const AddTask = () => {
     e.preventDefault();
     const form = e.target;
     const taskData = Object.fromEntries(new FormData(form));
+    console.log(taskData);
 
     //post task data
 
@@ -64,6 +65,7 @@ const AddTask = () => {
             <option value="Graphics Design">Graphics Design</option>
             <option value="Content Writing">Content Writing</option>
             <option value="Digital Marketing">Digital Marketing</option>
+            <option value="seo">SEO</option>
           </select>
         </div>
         <div className="flex flex-col gap-2">
@@ -126,6 +128,10 @@ const AddTask = () => {
             defaultValue={user.displayName}
             type="text"
           />
+        </div>
+        {/* Active / Inactive Status hidden Data */}
+        <div>
+          <input type="checkbox" className="toggle toggle-info" name="status" />
         </div>
         <div>
           <input
