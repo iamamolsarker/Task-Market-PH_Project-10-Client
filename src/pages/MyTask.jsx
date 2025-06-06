@@ -29,12 +29,22 @@ const MyTask = () => {
                 confirmButtonText: "Yes, delete it!"
                 }).then((result) => {
                 if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/all-task/${id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.deletedCount){
+                            Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                    });
+                    const remainingTask = myTask.filter(task => task._id !== id);
+                    setMyTask(remainingTask);
+                        }
+                    })
                     
-                    // Swal.fire({
-                    // title: "Deleted!",
-                    // text: "Your file has been deleted.",
-                    // icon: "success"
-                    // });
                 }
             });
     }
