@@ -1,9 +1,10 @@
 import React from 'react';
-import { CiBadgeDollar, CiCalendar, CiUser, CiLocationOn, CiEdit, CiCircleRemove  } from 'react-icons/ci';
+import { CiBadgeDollar, CiCalendar, CiUser, CiLocationOn } from 'react-icons/ci';
 import { MdRadioButtonChecked } from 'react-icons/md';
+import { Link } from 'react-router';
 
 const TaskCard = ({task}) => {
-    const {title, category, description, deadline, budget, username,} = task;
+    const {title, category, description, deadline, budget, username, status} = task;
     return (
         <>
             <div className='p-6 border border-gray-200 rounded-xl shadow-md flex flex-col gap-6 justify-between'>
@@ -20,8 +21,9 @@ const TaskCard = ({task}) => {
             </div>
             <div className='py-3 flex justify-between border-t border-gray-200'>
                 <p>9 bids</p>
-                <p>{task.status ? <span className='flex items-center gap-1'><MdRadioButtonChecked color='#17e349'/> Available</span> : <span className='flex items-center gap-1'><MdRadioButtonChecked color='#ef4444'/> Not Available</span>}</p>
+                <p>{status == 'available' ? <span className='flex items-center gap-1'><MdRadioButtonChecked color='#17e349'/> Ache</span> : <span className='flex items-center gap-1'><MdRadioButtonChecked color='#ef4444'/> Nai</span>}</p>
             </div>
+            <Link to={`/task/${task._id}`} className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg text-center">Details</Link>
         </div>
         </>
     );

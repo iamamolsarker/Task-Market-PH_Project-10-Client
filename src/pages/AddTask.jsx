@@ -130,8 +130,11 @@ const AddTask = () => {
           />
         </div>
         {/* Active / Inactive Status hidden Data */}
-        <div>
-          <input type="checkbox" className="toggle toggle-info hidden" defaultChecked name="status" />
+        <div className="hidden">
+          <select className="border p-3 border-gray-400 rounded-lg"  name="status">
+            <option value="available">available</option>
+            <option value="not available" >not available</option>
+          </select>
         </div>
         <div>
           <input

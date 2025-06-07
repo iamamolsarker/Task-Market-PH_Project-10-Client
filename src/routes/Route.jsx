@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import TaskDetails from "../pages/TaskDetails";
+import EditTask from "../pages/EditTask";
 
 
 const router = createBrowserRouter([
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
         {
             path: 'register',
             element: <Register></Register>
+        },
+        {
+            path: '/task/:id',
+            element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
+            loader: ({params})=> fetch(`http://localhost:5000/all-task/${params.id}`)
+        },
+        {
+            path:'edit-task/:id',
+            element: <PrivateRoute><EditTask></EditTask></PrivateRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/all-task/${params.id}`)
         }
     ]
   },

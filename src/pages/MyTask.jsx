@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthContext';
 import { CiCircleRemove, CiEdit } from 'react-icons/ci';
 import Swal from 'sweetalert2';
 import { ImMagicWand } from 'react-icons/im';
+import { Link } from 'react-router';
 
 const MyTask = () => {
 
@@ -68,7 +69,7 @@ const MyTask = () => {
                 <tbody>
                     {
                         myTask.map((task, i) => 
-                        <tr task={task}>
+                        <tr key={task._id} task={task}>
                         <th>{i+1}</th>
                         <th>{task.title}</th>
                         <th>{task.category}</th>
@@ -76,7 +77,7 @@ const MyTask = () => {
                         <th>{task.deadline}</th>
                         <th className='flex gap-2 items-center'>
                             <button title ="Bids" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><ImMagicWand size={20}/></button>
-                            <button title="Edit" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><CiEdit size={20}/></button>
+                            <Link to={`/edit-task/${task._id}`} title="Edit" className='border border-gray-300 p-2 rounded-lg cursor-pointer'><CiEdit size={20}/></Link>
                             <button onClick={ ()=> handleDelete(task._id)} title="Delete" className='border border-[#ff00001a] p-2 rounded-lg cursor-pointer bg-[#ff00001a]'><CiCircleRemove size={20} color='#ef4444'/></button>
                         </th>
                     </tr>
