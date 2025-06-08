@@ -137,6 +137,7 @@ const TopCategories = () => {
             </div>
         </div>
       </div>
+      <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg mt-5">View All Categories</button>
     </div>
   );
 };
