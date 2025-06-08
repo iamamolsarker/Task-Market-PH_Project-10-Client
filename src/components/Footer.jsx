@@ -13,7 +13,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div className="bg-[#111827] py-10">
-      <div className="container mx-auto flex gap-6">
+      <div className="container mx-auto flex flex-col md:flex-row gap-6">
         <div className="space-y-4 text-gray-300 flex-1">
           <Link to="/" className="text-xl font-bold">
             <h2>Task Market</h2>
@@ -24,9 +24,9 @@ const Footer = () => {
             freelancer today.
           </p>
           <div className="flex gap-3">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaLinkedinIn />
+            <Link to='https://www.facebook.com/iamamolsarker/'><FaFacebookF /></Link>
+            <Link to='https://twitter.com/iamamolsarker'><FaTwitter /></Link>
+            <Link to='https://www.linkedin.com/in/iamamolsarker/'><FaLinkedinIn /></Link>
             <FaInstagram />
           </div>
         </div>
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
         
       </div>
-      <div className="container mx-auto flex justify-between gap-6 mt-10 pt-10 border-t border-gray-700 text-gray-500">
+      <div className="container mx-auto flex justify-between gap-6 mt-10 pt-10 border-t border-gray-700 text-gray-500 flex-col md:flex-row">
         <p>© 2025 TaskMarket. All rights reserved.</p>
         <p>Built with passion for freelancers worldwide</p>
       </div>
