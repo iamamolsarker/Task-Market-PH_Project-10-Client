@@ -19,11 +19,13 @@ const TaskCard = ({task}) => {
                     <p className='flex gap-1 items-center text-[#303944]'><span><CiLocationOn size={'20px'} color='#ef4444'/></span> Remote</p>
                 </div>
             </div>
-            <div className='py-3 flex justify-between border-t border-gray-200'>
-                <p>9 bids</p>
-                <p>{status == 'available' ? <span className='flex items-center gap-1'><MdRadioButtonChecked color='#17e349'/> Ache</span> : <span className='flex items-center gap-1'><MdRadioButtonChecked color='#ef4444'/> Nai</span>}</p>
+            <div className='flex flex-col gap-5'>
+                <div className='py-3 flex justify-between border-t border-gray-200'>
+                    <p>9 bids</p>
+                    <p>{status == 'available' ? <span className='flex items-center gap-1'><MdRadioButtonChecked color='#17e349'/> Available</span> : <span className='flex items-center gap-1'><MdRadioButtonChecked color='#ef4444'/>Not Available</span>}</p>
+                </div>
+                <Link to={`/task/${task._id}`} className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg text-center">Details</Link>
             </div>
-            <Link to={`/task/${task._id}`} className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg text-center">Details</Link>
         </div>
         </>
     );

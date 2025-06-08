@@ -67,6 +67,10 @@ const EditTask = () => {
                 <option value="Content Writing">Content Writing</option>
                 <option value="Digital Marketing">Digital Marketing</option>
                 <option value="seo">SEO</option>
+                <option value="video & animation">Video & Animation</option>
+                <option value="sales & marketing">Sales & Marketing</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Translation">Translation</option>
               </select>
             </div>
             <div className="flex flex-col gap-2">
@@ -112,8 +116,8 @@ const EditTask = () => {
                 Availability
               </label>
               <select className="border p-3 border-gray-400 rounded-lg" defaultValue={status} name="status">
-                <option value="available">available</option>
-                <option value="not available" >not available</option>
+                <option value="available">Available</option>
+                <option value="not available" >Not Available</option>
               </select>
             </div>
             <div className="flex flex-col gap-2">
