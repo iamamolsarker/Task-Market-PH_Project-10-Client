@@ -24,7 +24,7 @@ const Register = () => {
         };
 
         //fetch user post
-        fetch("http://localhost:5000/users", {
+        fetch("https://assignment-10-task-market-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -63,18 +63,18 @@ const Register = () => {
   };
 
   const handleGoogleSignIn = () => {
-      signInGoogle().then((result) => {
-        const user = result.user;
-        navigate(`${location.state ? location.state : "/my-task"}`);
-        if (user) {
-          Swal.fire({
-            title: "User logged in Successfully!",
-            icon: "success",
-            timer: 2000,
-          });
-        }
-      });
-    };
+    signInGoogle().then((result) => {
+      const user = result.user;
+      navigate(`${location.state ? location.state : "/my-task"}`);
+      if (user) {
+        Swal.fire({
+          title: "User logged in Successfully!",
+          icon: "success",
+          timer: 2000,
+        });
+      }
+    });
+  };
   return (
     <div className="max-w-sm mx-auto min-h-screen items-center justify-center pt-24">
       <div>

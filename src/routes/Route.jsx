@@ -11,50 +11,77 @@ import PrivateRoute from "./PrivateRoute";
 import TaskDetails from "../pages/TaskDetails";
 import EditTask from "../pages/EditTask";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
-    children:[
-        {
-            index:true,
-            element:<Home></Home>,
-            loader: ()=> fetch('http://localhost:5000/all-task/featured')
-        },
-        {
-            path:'add-task',
-            element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
-        },
-        {
-            path: 'all-task',
-            element:<AllTask></AllTask>,
-            loader: ()=> fetch('http://localhost:5000/all-task/')
-        },
-        {
-            path: 'my-task',
-            element: <PrivateRoute><MyTask></MyTask></PrivateRoute>,
-        },
-        {
-            path: 'login',
-            element: <Login></Login>
-        },
-        {
-            path: 'register',
-            element: <Register></Register>
-        },
-        {
-            path: '/task/:id',
-            element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/all-task/${params.id}`)
-        },
-        {
-            path:'edit-task/:id',
-            element: <PrivateRoute><EditTask></EditTask></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/all-task/${params.id}`)
-        }
-    ]
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () =>
+          fetch(
+            "https://assignment-10-task-market-server.vercel.app/all-task/featured"
+          ),
+      },
+      {
+        path: "add-task",
+        element: (
+          <PrivateRoute>
+            <AddTask></AddTask>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-task",
+        element: <AllTask></AllTask>,
+        loader: () =>
+          fetch(
+            "https://assignment-10-task-market-server.vercel.app/all-task/"
+          ),
+      },
+      {
+        path: "my-task",
+        element: (
+          <PrivateRoute>
+            <MyTask></MyTask>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/task/:id",
+        element: (
+          <PrivateRoute>
+            <TaskDetails></TaskDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-task-market-server.vercel.app/all-task/${params.id}`
+          ),
+      },
+      {
+        path: "edit-task/:id",
+        element: (
+          <PrivateRoute>
+            <EditTask></EditTask>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-task-market-server.vercel.app/all-task/${params.id}`
+          ),
+      },
+    ],
   },
 ]);
 

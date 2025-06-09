@@ -13,7 +13,7 @@ const AddTask = () => {
 
     //post task data
 
-    fetch("http://localhost:5000/all-task", {
+    fetch("https://assignment-10-task-market-server.vercel.app/all-task", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -135,9 +135,12 @@ const AddTask = () => {
         </div>
         {/* Active / Inactive Status hidden Data */}
         <div className="hidden">
-          <select className="border p-3 border-gray-400 rounded-lg"  name="status">
+          <select
+            className="border p-3 border-gray-400 rounded-lg"
+            name="status"
+          >
             <option value="available">available</option>
-            <option value="not available" >not available</option>
+            <option value="not available">not available</option>
           </select>
         </div>
         <div>
