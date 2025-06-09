@@ -102,7 +102,10 @@ const MyTask = () => {
           </tbody>
         </table>
       ) : (
-        <div>no data found</div>
+        <div>
+          <p>No data found</p>
+          <Link to='/add-task'>Add Task</Link>
+          </div>
       )}
     </div>
   );
