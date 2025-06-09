@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user, logOut } = use(AuthContext);
@@ -77,7 +78,8 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-2 items-center justify-center">
-          <img title={user.displayName} src={user.photoURL} alt="" className="w-[48px] h-[48px] border border-gray-400 rounded-full object-contain"/>
+          <img data-tooltip-id="display-name" data-tooltip-content={user.displayName} src={user.photoURL} alt="" className="w-[48px] h-[48px] border border-gray-400 rounded-full object-contain"/>
+          <Tooltip id="display-name"/>
           <Link
             onClick={handleLogOut}
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"

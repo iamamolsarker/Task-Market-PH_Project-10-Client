@@ -1,6 +1,7 @@
 import React from 'react';
 import { CiBadgeDollar, CiCalendar, CiLocationOn, CiUser } from 'react-icons/ci';
 import { useLoaderData } from 'react-router';
+import { Tooltip } from 'react-tooltip';
 
 const TaskDetails = () => {
     const {title, description, category, budget, deadline, username} = useLoaderData();
@@ -10,10 +11,13 @@ const TaskDetails = () => {
             <h2 className='text-3xl text-[#111827] font-medium mt-5'>{title}</h2>
             <p className='text-[#4b5563]'>{description}</p>
             <div className='space-y-1.5 flex justify-center gap-10 py-4'>
-                <p title='Budget' className='flex flex-col gap-1 items-center font-medium text-[#303944]'><span><CiBadgeDollar size={'30px'} color='#22c55e'/></span> ${budget}</p>
-                <p title='Deadline' className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiCalendar size={'30px'} color='#3b82f6'/></span> {deadline}</p>
-                <p title='User' className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiUser size={'30px'} color='#a855f7'/></span> {username}</p>
-                <p className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiLocationOn size={'30px'} color='#ef4444'/></span> Remote</p>
+                <p data-tooltip-id="budget-tooltip" data-tooltip-content="Budget" className='flex flex-col gap-1 items-center font-medium text-[#303944]'><span><CiBadgeDollar size={'30px'} color='#22c55e'/></span> ${budget}</p>
+                <p data-tooltip-id="deadline-tooltip" data-tooltip-content="Deadline" className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiCalendar size={'30px'} color='#3b82f6'/></span> {deadline}</p>
+                <p data-tooltip-id="username-tooltip" data-tooltip-content="User" className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiUser size={'30px'} color='#a855f7'/></span> {username}</p>
+                <p className='flex flex-col gap-1 font-medium items-center text-[#303944]'><span><CiLocationOn size={'30px'} color='#ef4444'/></span> Remote</p> 
+                <Tooltip id='budget-tooltip'/>
+                <Tooltip id='deadline-tooltip'/>
+                <Tooltip id='username-tooltip'/>
             </div>
         </div>
     );
