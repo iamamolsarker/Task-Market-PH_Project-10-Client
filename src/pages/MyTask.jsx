@@ -102,9 +102,9 @@ const MyTask = () => {
           </tbody>
         </table>
       ) : (
-        <div>
-          <p>No data found</p>
-          <Link to='/add-task'>Add Task</Link>
+        <div className="flex flex-col gap-6 text-center justify-center">
+          <p className="text-xl">No data found</p>
+          <Link className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg" to='/add-task'>Add Task</Link>
           </div>
       )}
     </div>
