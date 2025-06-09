@@ -41,7 +41,7 @@ const Header = () => {
   );
   console.log(user);
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm z-40">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Header = () => {
         {user ? (
           <div className="flex gap-2 items-center justify-center">
           <img data-tooltip-id="display-name" data-tooltip-content={user.displayName} src={user.photoURL} alt="" className="w-[48px] h-[48px] border border-gray-400 rounded-full object-contain"/>
-          <Tooltip id="display-name"/>
+          <Tooltip className="z-50" id="display-name"/>
           <Link
             onClick={handleLogOut}
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"
