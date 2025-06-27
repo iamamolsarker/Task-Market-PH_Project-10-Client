@@ -1,12 +1,82 @@
-# React + Vite
+# 🧑‍💻 Freelance Task Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and minimal UI freelance task marketplace built with the MERN stack. The platform allows individuals to post freelance tasks and freelancers to find work based on skills, deadlines, and budget.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Overview
 
-## Expanding the ESLint configuration
+This project aims to connect clients and freelancers in a seamless and intuitive environment.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔑 Key Features
+
+- 🔒 **Authentication**
+  - Email/Password login & registration
+  - Google OAuth support
+  - Protected routes with conditional rendering
+
+- 📋 **Task Management**
+  - Add, Browse, Update, Delete tasks
+  - View task details (Protected route)
+  - Filter by category, deadline, etc.
+  - Post bids on tasks (if implemented)
+
+- 🏠 **Pages & Routing**
+  - Home: Banner/Slider, Featured Tasks, and 2 extra meaningful sections
+  - Browse Tasks
+  - My Posted Tasks (Private)
+  - Add Task (Private)
+  - Task Details (Private)
+  - Login/Register
+  - Update Task (Private)
+  - 404 Not Found
+
+- 🧠 **Dynamic Content**
+  - Shows user info when logged in
+  - Task lists sorted by deadline (limit to 6 featured tasks on home)
+  - Interactive UI with toast and SweetAlert for feedback
+
+- 🌐 **Responsive Design**
+  - Fully mobile, tablet, and desktop compatible
+  - Modern minimal UI, inspired by platforms like ThemeForest
+
+---
+
+## 🧱 Tech Stack
+
+| Tech             | Usage                      |
+|------------------|----------------------------|
+| React            | Frontend                   |
+| React Router DOM | Routing                    |
+| Firebase         | Authentication             |
+| Node.js + Express| Backend API                |
+| MongoDB          | Database                   |
+| Tailwind CSS     | Styling                    |
+| SweetAlert / Toast| Alerts & Notifications    |
+
+---
+
+## 🔐 Protected Routes
+
+Pages like `Add Task`, `My Posted Tasks`, `Task Details`, and `Update Task` are only accessible when the user is logged in. Redirects to login page if unauthenticated.
+
+---
+
+## 🧭 Navigation Structure
+
+- Home
+- Add Task _(Private)_
+- Browse Tasks
+- My Posted Tasks _(Private)_
+- Login / Signup (conditional)
+- User Profile & Logout (conditional)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/iamamolsarker/Task-Market-PH_Project-10-Client.git
+cd Task-Market-PH_Project-10-Client
