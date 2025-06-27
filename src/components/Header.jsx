@@ -37,11 +37,17 @@ const Header = () => {
       <li>
         <Link to="/my-task">My Task</Link>
       </li>
+      <li>
+        <Link to="/support">Support</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact Us</Link>
+      </li>
     </>
   );
   console.log(user);
   return (
-    <div className="navbar bg-base-100 shadow-sm z-40">
+    <div className="navbar bg-base-100 shadow-sm max-w-7/10 mx-auto p-3 rounded-xl mt-6 -mb-[97px] z-20 sticky top-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -18,12 +18,12 @@ const Slider = () => {
       pagination={{ clickable: true }}
     >
       <div
-        className="min-h-[75vh] flex flex-col items-center justify-center"
+        className="min-h-[85vh] flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${BannerBg})` }}
       >
         <SwiperSlide>
           <div
-            className="px-15 min-h-[75vh] flex justify-center"
+            className="px-15 min-h-[85vh] flex justify-center"
             style={{ backgroundImage: `url(${BannerBg})` }}
           >
             <div className="flex flex-col justify-center items-center gap-5 max-w-1/2 text-center">
@@ -47,7 +47,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="px-15 min-h-[75vh] flex justify-center"
+            className="px-15 min-h-[85vh] flex justify-center"
             style={{ backgroundImage: `url(${BannerBg})` }}
           >
             <div className="flex flex-col justify-center items-center gap-5 max-w-1/2 text-center">
@@ -68,7 +68,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="px-15 min-h-[75vh] flex justify-center"
+            className="px-15 min-h-[85vh] flex justify-center"
             style={{ backgroundImage: `url(${BannerBg})` }}
           >
             <div className="flex flex-col justify-center items-center gap-5 max-w-1/2 text-center">
